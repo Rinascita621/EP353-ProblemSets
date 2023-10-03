@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(){
+int main() {
     int midipitch;
 
     printf("Enter a MIDI pitch: ");
@@ -13,24 +13,26 @@ int main(){
     else {
         int octave = (midipitch / 12) - 1;
         int notenumber = midipitch % 12;
-        char noteName;
+        char* notename;
  
-    switch(notenumber){
-        case 0: noteName = "C"; break;
-        case 1: noteName = "C#"; break;
-        case 2: noteName = "D"; break;
-        case 3: noteName = "D#"; break;
-        case 4: noteName = "E"; break;
-        case 5: noteName = "F"; break;
-        case 6: noteName = "F#"; break;
-        case 7: noteName = "G"; break;
-        case 8: noteName = "G#"; break;
-        case 9: noteName = "A"; break;
-        case 10: noteName = "A#"; break;
-        case 11: noteName = "B"; break;
-        default: noteName = "Invalid";
+    switch(notenumber) {
+        case 0: notename = "C"; break;
+        case 1: notename = "C#"; break;
+        case 2: notename = "D"; break;
+        case 3: notename = "D#"; break;
+        case 4: notename = "E"; break;
+        case 5: notename = "F"; break;
+        case 6: notename = "F#"; break;
+        case 7: notename = "G"; break;
+        case 8: notename = "G#"; break;
+        case 9: notename = "A"; break;
+        case 10: notename = "A#"; break;
+        case 11: notename = "B"; break;
+        default: notename = "Invalid";
     }
     
-    printf("The MIDI pitch %d is %c%d\n", midipitch, noteName, octave);
-    return 0;
+    printf("The MIDI pitch %d is %s%d\n", midipitch, notename, octave);
     }
+
+    return 0;
+}
