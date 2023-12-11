@@ -57,7 +57,7 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
     
     //==============================================================================
-    juce::AudioProcessorValueTreeState parameters;
+    juce::AudioProcessorValueTreeState& parameters;
     
     //==============================================================================
     std::atomic<float>* sizeParameter;
@@ -71,6 +71,7 @@ private:
     public:
         myFDNReverb(juce::AudioProcessorValueTreeState& state, int numdelayLines, float initialDelay) : numdelayLines(numdelayLines), decay(initialDelay), delayLines(numdelayLines, std::vector<float>(maxDelaylength, 0.0f)), readPointers(numdelayLines, 0), writePointers(numdelayLines, 0), parameters(state)
         {
+            parameters = state;
             initializeMixmatrix();
         }
         void process(juce::dsp::AudioBlock<float>& block)
